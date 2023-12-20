@@ -4,23 +4,12 @@
 
 package frc.robot;
 
-import java.util.List;
-
-import edu.wpi.first.math.controller.PIDController;
-import edu.wpi.first.math.geometry.Pose2d;
-import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
-import edu.wpi.first.math.trajectory.Trajectory;
-import edu.wpi.first.math.trajectory.TrajectoryConfig;
-import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import frc.lib.util.PIDConstants;
-import frc.robot.Constants.AutoConstants;
 import frc.robot.autos.exampleAuto;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
@@ -85,21 +74,6 @@ public class RobotContainer {
   }
 
   public void configureAutoCommands() {
-    // this.autoCommands.put("L2 Link Farside", new FarsideL2Link(s_Swerve,
-    // poseEstimator, wrist, arm, leds));
-    // this.autoCommands.put("Cable Side L3", new CableSideL3(s_Swerve,
-    // poseEstimator, arm, wrist, leds));
-
-    // this.autoCommands.put("Two cone auto", new TwoConeAuto(s_Swerve,
-    // poseEstimator, arm, wrist, leds));
-    // this.autoCommands.put("Cone and Cube L3", new ConeAndCubeL3(s_Swerve,
-    // poseEstimator, arm, wrist, leds));
-    // this.autoCommands.put("L2 Cone Charge Station",
-    // new L2ChargeStationCone(s_Swerve, poseEstimator, arm, wrist, leds));
-    // this.autoCommands.put("L3 Cone Farside",
-    // new FarsideConeL3(s_Swerve, poseEstimator, arm, wrist, leds));
-    // this.autoCommands.put("L2 Cone Center Balance",
-    // new CenterChargeStation(s_Swerve, poseEstimator, arm, wrist, leds));
   }
 
 

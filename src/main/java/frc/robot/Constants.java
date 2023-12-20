@@ -5,14 +5,7 @@ import com.revrobotics.CANSparkMax.IdleMode;
 import edu.wpi.first.math.MatBuilder;
 import edu.wpi.first.math.Matrix;
 import edu.wpi.first.math.Nat;
-import edu.wpi.first.math.VecBuilder;
-import edu.wpi.first.math.Vector;
-import edu.wpi.first.math.controller.ArmFeedforward;
-import edu.wpi.first.math.controller.ProfiledPIDController;
-import edu.wpi.first.math.geometry.Rotation3d;
-import edu.wpi.first.math.geometry.Transform3d;
 import edu.wpi.first.math.geometry.Translation2d;
-import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.numbers.N1;
 import edu.wpi.first.math.numbers.N3;
@@ -21,55 +14,12 @@ import edu.wpi.first.math.util.Units;
 import frc.lib.util.SVAConstants;
 import frc.lib.util.SwerveModuleConstants;
 import frc.lib.util.PIDConstants;
-import frc.lib.util.ProfiledPIDConstants;
 
 public final class Constants {
-  public static enum PieceType {
-    CONE,
-    CUBE,
-    AIR
-  }
-
-  public static enum GamePieceLevel {
-    L1,
-    L2,
-    L3,
-  }
-
-  public static enum RobotModes {
-    Competition,
-    Debug
-  }
-
-  public static final RobotModes robotMode = RobotModes.Debug;
-
-  public static final class Vision {
-    public static final String rightCameraName = "OV5647";
-    public static final String leftCameraName = "OV5647left";
-    public static final Transform3d cameraToRobot = new Transform3d(
-        new Translation3d(-0.22, 0.35, 0),
-        new Rotation3d(0, Units.degreesToRadians(0), 0));
-    public static final Transform3d leftCameraToRobot = new Transform3d(
-        new Translation3d(-0.22, -0.35, 0),
-        new Rotation3d(0, Units.degreesToRadians(0), 0));
-
-    public static final Transform3d robotToCamera = cameraToRobot.inverse();
-    public static final Vector<N3> visionMeasurementStdDevs = VecBuilder.fill(0.5, 0.5, Units.degreesToRadians(10));
-
-    public static final TrapezoidProfile.Constraints TRANSLATION_CONSTRAINTS = new TrapezoidProfile.Constraints(5, 2);
-    public static final TrapezoidProfile.Constraints ROTATION_CONSTRAINTS = new TrapezoidProfile.Constraints(3, 2);
-
-    /* Custom PID Controllers for Vision */
-    public static final ProfiledPIDController translationController = new ProfiledPIDController(3, 0, 0.2,
-        TRANSLATION_CONSTRAINTS);
-    public static final ProfiledPIDController rotationController = new ProfiledPIDController(3, 0, 0.2,
-        ROTATION_CONSTRAINTS);
-  }
 
   public static final class Operators {
     public static final int driver = 0;
   }
-
   
   public static final class Swerve {
     /* Drive Controls */
@@ -135,8 +85,8 @@ public final class Constants {
     public static final boolean canCoderInvert = false;
 
     /* Module Specific Constants */
-    public static final String[] moduleNames = { "Front Left", "Front Right", "Back Left", "Back Right" }; // module #0,
-    // #1, #2, #3
+    public static final String[] moduleNames = { "Front Left", "Front Right", "Back Left", "Back Right" }; 
+    // module #0, #1, #2, #3
 
     public static final SVAConstants driveSVA = new SVAConstants(0.5, 2.5, 0.5);
     public static final PIDConstants drivePID = new PIDConstants(0.01, 0.00005, 0.0005);
@@ -200,8 +150,6 @@ public final class Constants {
     public static final double kPYController = 2;
     public static final double kPThetaController = .05;
 
-    // public static final PIDConstants translationPID = new PIDConstants(0.8, 0.2,
-    // 0.05);
     public static final PIDConstants translationPID = new PIDConstants(.8, 0.2, 0.5);
     public static final PIDConstants rotationPID = new PIDConstants(4, 0.002, 0.05);
 
@@ -210,7 +158,4 @@ public final class Constants {
         kMaxAngularSpeedRadiansPerSecond, kMaxAngularSpeedRadiansPerSecondSquared);
   }
 
-  public static final class LEDConstants {
-    public static final int blinkinPort = 0;
-  }
 }

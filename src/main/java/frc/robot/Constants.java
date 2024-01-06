@@ -43,7 +43,7 @@ public final class Constants {
     public static final double angleGearRatio = 150.0 / 7.0; // 150/7:1
 
     /* Custom PID Controllers */
-    public static final PIDConstants robotRotationPID = new PIDConstants(0.1, 0, 0.00005);
+    public static final PIDConstants robotRotationPID = new PIDConstants(0.15, 0, 0.00005); //chaned to 0.15
     public static final PIDConstants translationPID = new PIDConstants(1, 0, 0.005);
     public static final PIDConstants balancePID = new PIDConstants(0.044, 0.0, 0, 2); // kP was 0.43
 
